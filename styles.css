@@ -1,23 +1,34 @@
 * {
    margin: 0;
    padding: 0;
-   outline: 1px solid red;
 }
+
+:root {
+   --sidebar-bg: #e11d48;
+   --main-bg: #fff1f2;
+}
+
+@font-face {
+   font-family: roboto;
+   src: url(./assets/roboto);
+}
+
+/*#fb923c*/
 
 html,
 body {
-   height: auto;
+   height: 100%;
 }
 
 body {
    display: grid;
-   grid: auto / 400px auto;
+   grid: auto / 19% auto;
 }
 
 /*SIDEBAR*/
 .sidebar-section {
    grid-area: 1 / 1 / 2 / 2;
-   background-color: rgb(0, 157, 255);
+   background-color: var(--sidebar-bg);
 }
 
 nav {
@@ -27,18 +38,48 @@ nav {
    padding: 25px 30px 0 30px;
 }
 
-.nav-elements {
-   display: grid;
-   grid: auto / 40px auto;
-   gap: 20px;
+.nav-element {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 25px;
+   text-decoration: none;
+}
+
+.brand-logo {
+   fill: white;
+   height: 70px;
+   width: 70px;
+}
+
+.brand-name {
+   font-family: roboto, sans-serif;
+   font-size: 1.6rem;
+   font-weight: bold;
+   color: white;
 }
 
 ul {
    margin-top: 50px;
+   list-style: none;
 }
 
 ul li {
    margin-top: 15px;
+}
+
+.nav-icon {
+   margin-left: 15px;
+   height: 25px;
+   width: 25px;
+   fill: white;
+}
+
+.nav-element p {
+   font-family: roboto, sans-serif;
+   font-size: 1rem;
+   font-weight: bold;
+   color: white;
 }
 
 /*CONTENT*/
@@ -46,34 +87,66 @@ ul li {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
+   background-color: var(--main-bg);
 }
 
 /*HEADER*/
 header {
-   height: 140px;
-   padding: 20px 40px 20px 40px;
+   min-height: 170px;
+   padding: 0 40px 0 40px;
    display: grid;
    grid: repeat(2, 1fr) / repeat(10, 1fr);
+   background-color: white;
+   box-shadow: 0 3px 10px 0 lightgrey;
+}
+
+.hide-btn {
+   position: absolute;
+   visibility: hidden;
+}
+
+.header-icon {
+   height: 30px;
+   width: 30px;
 }
 
 .searchbar-container {
    grid-area: 1 / 1 / 2 / 7;
    display: flex;
    justify-content: flex-start;
-   align-items: flex-start;
+   align-items: center;
    gap: 30px;
 }
 
 .searchbar {
-   width: 650px;
+   height: 35px;
+   width: 80%;
+   border: none;
+   outline: none;
+   border-radius: 15px;
+   background-color: var(--main-bg);
 }
 
 .misc-container {
    grid-area: 1 / 8 / 2 / 11;
    display: flex;
    justify-content: center;
-   align-items: flex-start;
+   align-items: center;
    gap: 30px;
+}
+
+.small-avatar {
+   height: 60px;
+   width: 60px;
+   border-radius: 30px;
+}
+
+.small-name {
+   font-family: roboto, sans-serif;
+   font-size: 0.9rem;
+   font-weight: bold;
+   text-decoration: none;
+   color: black;
 }
 
 .avatar-container {
@@ -85,71 +158,205 @@ header {
 
 .big-avatar {
    grid-area: 1 / 1 / 3 / 2;
+   height: 70px;
+   width: 70px;
+   border-radius: 40px;
 }
 
 .hello {
    grid-area: 1 / 2 / 3 / 3;
 }
 
+.hello p {
+   font-family: roboto, sans-serif;
+   font-size: 0.8rem;
+   font-weight: bold;
+   color: black;
+}
+
+.hello h2 {
+   margin-top: 5px;
+   font-family: roboto, sans-serif;
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: black;
+}
+
 .buttons-container {
    grid-area: 2 / 7 / 3 / 11;
    display: flex;
-   justify-content: center;
+   justify-content: space-evenly;
    align-items: center;
    gap: 30px;
+}
+
+.header-button {
+   height: 1.9rem;
+   width: 130px;
+   border: none;
+   border-radius: 25px;
+   background-color: var(--sidebar-bg);
+   font-family: roboto, sans-serif;
+   font-size: 0.9rem;
+   font-weight: bold;
+   color: white;
+
 }
 
 /*MAIN*/
 main {
    height: 100%;
-   padding: 40px 40px 0 20px;
+   padding: 20px 40px 0 20px;
    display: grid;
    grid: auto /70% auto;
    column-gap: 50px;
 }
 
-.project-section {
+.section-title {
+   margin-bottom: 15px;
+   font-family: roboto, sans-serif;
+   font-size: 1rem;
+   font-weight: bold;
+   color: black;
+}
+
+.projects-section {
    grid-area: 1 / 1 / 2 /2;
 }
 
 .cards {
-   margin-top: 20px;
+   height: auto;
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-evenly;
+   justify-content: flex-start;
    align-content: center;
    gap: 30px;
 }
 
 .card {
    height: 200px;
-   width: 40%;
-   min-width: 300px;
+   width: 430px;
+   min-width: 400px;
+   padding: 30px 10px 0 30px;
+   border-radius: 10px;
+   background-color: #f8fafc;
+   box-shadow: 0 3px 10px 0 lightgrey;
+   display: grid;
+   grid: 140px auto /55% auto;
+
+}
+
+.card article {
+   grid-area: 1 / 1 / 2 / 3;
+   width: 80%;
+}
+
+.card .project-buttons {
+   grid-area: 2 / 2/ 2 / 2;
+   height: 30px;
+   width: 160px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.project-icon {
+   height: 20px;
+   width: 20px;
+}
+
+.project-name {
+   font-family: roboto, sans-serif;
+   font-size: 0.85rem;
+   font-weight: bold;
+   color: black;
+}
+
+.project-desc {
+   font-family: roboto, sans-serif;
+   font-size: 0.75rem;
+   color: rgb(100, 100, 100);
 }
 
 aside {
+   padding: 0 30px;
    grid-area: 1 / 2 / 2 / 3;
    display: flex;
    flex-direction: column;
-   gap: 40px;
+   gap: 30px;
 }
 
 .annoncements {
-   padding: 20px 40px;
+   height: 340px;
+   width: 350px;
    display: flex;
    flex-direction: column;
-   gap: 40px;
+   justify-content: space-evenly;
+   align-items: center;
+   gap: 10px;
+   border-radius: 15px;
+   background-color: #f8fafc;
+   box-shadow: 0 3px 10px 0 lightgrey;
+}
+
+.annoncements>article:nth-child(1) {
+   border-bottom: 1px solid lightgrey;
+}
+
+.annoncement {
+   height: 120px;
+   width: 300px;
+}
+
+.annoncement-title {
+   font-family: roboto, sans-serif;
+   font-size: 0.8rem;
+   font-weight: bold;
+   color: black;
+}
+
+.annoncement-desc {
+   margin-top: 5px;
+   font-family: roboto, sans-serif;
+   font-size: 0.7rem;
+   color: rgb(100, 100, 100);
 }
 
 .trends {
-   padding: 20px 30px;
+   height: 340px;
+   width: 350px;
    display: flex;
    flex-direction: column;
-   gap: 20px;
+   justify-content: space-evenly;
+   align-items: center;
+   gap: 10px;
+   border-radius: 15px;
+   background-color: #f8fafc;
+   box-shadow: 0 3px 10px 0 lightgrey;
 }
 
 .trend {
-   display: grid;
-   grid: repeat(2, 50%) / 20% auto;
-   column-gap: 30px;
+   height: 80px;
+   width: 300px;
+   margin-left: 40px;
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.trend div {
+   width: 100%;
+}
+
+.trend-address {
+   font-family: roboto, sans-serif;
+   font-size: 0.5rem;
+   color: black;
+}
+
+.trend-name {
+   margin-top: 5px;
+   font-family: roboto, sans-serif;
+   font-size: 0.7rem;
+   color: rgb(100, 100, 100);
 }
