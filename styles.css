@@ -119,12 +119,20 @@ header {
 }
 
 .searchbar {
+   background-color: var(--main-bg);
    height: 35px;
    width: 80%;
+   padding: 0 20px;
    border: none;
    outline: none;
    border-radius: 15px;
-   background-color: var(--main-bg);
+   font-family: roboto, sans-serif;
+   font-size: 0.8rem;
+   color: rgb(80, 80, 80);
+}
+
+.searchbar:focus {
+   filter: brightness(95%);
 }
 
 .misc-container {
@@ -200,7 +208,23 @@ header {
    font-size: 0.9rem;
    font-weight: bold;
    color: white;
+}
 
+.header-button:hover {
+   cursor: pointer;
+   filter: brightness(120%);
+   font-size: 0.95rem;
+}
+
+.header-button:active {
+   cursor: pointer;
+   filter: brightness(90%);
+   font-size: 0.9rem;
+}
+
+.project-icon:hover,
+.header-icon:hover {
+   cursor: pointer
 }
 
 /*MAIN*/
@@ -220,6 +244,7 @@ main {
    color: black;
 }
 
+/*PROJECTS*/
 .projects-section {
    grid-area: 1 / 1 / 2 /2;
 }
@@ -286,6 +311,7 @@ aside {
    gap: 30px;
 }
 
+/*ANNONCEMENTS*/
 .annoncements {
    height: 340px;
    width: 350px;
@@ -322,6 +348,7 @@ aside {
    color: rgb(100, 100, 100);
 }
 
+/*TRENDING*/
 .trends {
    height: 340px;
    width: 350px;
@@ -349,8 +376,9 @@ aside {
 }
 
 .trend-address {
+   text-decoration: none;
    font-family: roboto, sans-serif;
-   font-size: 0.5rem;
+   font-size: 0.7rem;
    color: black;
 }
 
